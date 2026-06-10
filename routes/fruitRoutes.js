@@ -23,4 +23,6 @@ router.put(
     FruitController.calculateEarnings
 );
 
+router.get('/total-earnings', FruitController.getTotalEarnings);
+
 module.exports = router;

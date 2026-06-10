@@ -74,6 +74,23 @@ class FruitController {
             });
         }
     }
+
+    
+    static async getTotalEarnings(req, res) {
+        try {
+            const fruits = await Fruit.find();
+            const totalEarnings = fruits.reduce((total, fruit) => {
+                return total + (fruit.earnings || 0);
+            }, 0);
+
+            res.status(200).json({
+                totalEarnings: parseFloat(totalEarnings.toFixed(2))
+            });
+        } catch (error) {
+            res.status(500).json({
+                message: error.message
+            });
+        }
 }
 
 module.exports = FruitController;

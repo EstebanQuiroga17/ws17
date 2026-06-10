@@ -75,7 +75,7 @@ class FruitController {
         }
     }
 
-    
+
     static async getTotalEarnings(req, res) {
         try {
             const fruits = await Fruit.find();
@@ -91,6 +91,7 @@ class FruitController {
                 message: error.message
             });
         }
+    }
 }
 
 module.exports = FruitController;
